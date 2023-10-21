@@ -10,6 +10,8 @@ styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent {
 
+    cliente = new Cliente();
+
     isVisible:boolean = true;
 
     clientes:Cliente[] = [];
@@ -19,6 +21,15 @@ export class PrincipalComponent {
     selecionar():void {
       this.service.selecionar()
       .subscribe(retorno => this.clientes = retorno )
+    }
+
+    cadastrar(): void {
+      this.service.cadastrar(this.cliente)
+        .subscribe(retorno => {
+          this.clientes.push(retorno);
+          this.cliente = new Cliente();
+          alert("Cliente cadastrado com sucesso!")
+        });
     }
 
     ngOnInit() {

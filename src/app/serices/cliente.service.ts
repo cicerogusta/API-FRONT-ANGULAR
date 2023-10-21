@@ -9,11 +9,16 @@ import {Cliente} from "../model/Cliente";
   providedIn: 'root'
 })
 export class ClienteService {
-  private url:string = 'http://localhost:8080/clientes'
+  private urlGetAllClients:string = 'http://localhost:8080/clientes'
+  private urlPostClient:string = 'http://localhost:8080/cliente'
   constructor(private http:HttpClient) { }
 
    selecionar():Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.url);
+    return this.http.get<Cliente[]>(this.urlGetAllClients);
+  }
+
+  cadastrar(obj: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.urlPostClient, obj)
   }
 
 }
