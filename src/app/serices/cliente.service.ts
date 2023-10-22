@@ -10,9 +10,6 @@ import {Cliente} from "../model/Cliente";
 })
 export class ClienteService {
   private baseUrl:string = 'http://localhost:8080'
-  private urlGetAllClients:string = 'http://localhost:8080/clientes'
-  private urlPostClient:string = 'http://localhost:8080/cliente'
-  private urlPutClient:string = 'http://localhost:8080/clientes/{id}'
   constructor(private http:HttpClient) { }
 
    selecionar():Observable<Cliente[]> {
