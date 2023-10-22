@@ -23,8 +23,13 @@ export class ClienteService {
   }
 
   editar(id:number, obj: Cliente): Observable<Cliente> {
-    const url = `${this.baseUrl}/clientes/${id}`
+    const url = `${this.baseUrl}/cliente/${id}`
     return this.http.put<Cliente>(url, obj)
+  }
+
+  remover(id:number):Observable<Cliente> {
+    const url = `${this.baseUrl}/cliente/${id}`
+    return this.http.delete<Cliente>(url)
   }
 
 }
